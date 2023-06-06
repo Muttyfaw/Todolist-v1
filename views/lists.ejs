@@ -5,15 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Todo List </title>
 </head>
 
-<body>
-    <% if(kindofDay == "Saturday" || kindofDay == "Sunday" ){ %> 
-      <h1 style ="color:brown">It's a <%= kindofDay %>!</h1>
-    <% }else{ %>
-        <h1 style="color:aqua"> <%= kindofDay %> ToDoList!</h1>
-    <% } %>
-</body>
+    <body>
+        <div class="box" id = "heading">
+           
+            <h1> <%= kindofDay %> </h1>
+            
+        </div>
+        
+        <div class="box">
+                <% for(let i = 0; i < kindofItem.length; i++){ %> 
+            <div class="item">  
+                 <input type="checkbox">      
+                 <p> <%= kindofItem[i] %> </p>
+            </div>
+                <%  } %> 
+            
+            <form action="/" method="post" class="item">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit">+</button>
+            </form>
+            
+        </div>
 
+       
+    </body>
 </html>
